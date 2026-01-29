@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Claudio Guzmán Pérez</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #333333;
+            background: #ffffff;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.75in;
+        }
+        
+        /* ATS-friendly structure */
+        .cv-header {
+            text-align: center;
+            border-bottom: 2px solid #2c5aa0;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .candidate-name {
+            font-size: 24pt;
+            font-weight: 700;
+            color: #2c5aa0;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .job-title {
+            font-size: 14pt;
+            font-weight: 600;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 10pt;
+            color: #666666;
+        }
+        
+        .contact-item {
+            white-space: nowrap;
+        }
+        
+        .contact-item strong {
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #2c5aa0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #2c5aa0;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        /* Professional Summary - Critical for ATS */
+        .professional-summary {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #2c5aa0;
+            margin-bottom: 25px;
+        }
+        
+        .summary-text {
+            text-align: justify;
+            line-height: 1.5;
+        }
+        
+        /* Core Competencies - Keyword rich */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .competencies-grida {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .competency-category {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 4px;
+        }
+        
+        .competency-title {
+            font-weight: 600;
+            color: #2c5aa0;
+            font-size: 10pt;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .competency-list {
+            font-size: 9pt;
+            line-height: 1.3;
+            color: #555555;
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .job-position {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #2c5aa0;
+        }
+        
+        .employment-dates {
+            font-size: 10pt;
+            color: #666666;
+            font-weight: 600;
+        }
+        
+        .company-name {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 8px;
+        }
+        
+        .job-location {
+            font-size: 9pt;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+        
+        .job-description {
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+        
+        .achievements-list {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        
+        .achievements-list li {
+            margin-bottom: 4px;
+            text-align: justify;
+        }
+        
+        /* Education Section */
+        .education-item {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        .degree-info {
+            flex: 1;
+        }
+        
+        .degree-title {
+            font-weight: 700;
+            color: #2c5aa0;
+            font-size: 11pt;
+        }
+        
+        .institution {
+            font-weight: 600;
+            color: #333333;
+            font-size: 10pt;
+        }
+        
+        .education-details {
+            font-size: 9pt;
+            color: #666666;
+            margin-top: 2px;
+        }
+        
+        .education-dates {<small>
+            font-size:</small> 10pt;
+            color: #666666;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        /* Skills Section - ATS Optimized */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        .skill-category-title {
+            font-weight: 700;
+            color: #2c5aa0;
+            font-size: 11pt;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .skill-tag {
+            background: #ffffff;
+            color: #333333;
+            padding: 4px 8px;
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+            font-size: 9pt;
+            font-weight: 500;
+        }
+        
+        /* Certifications - Important for tech roles */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .certification-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-left: 3px solid #28a745;
+            border-radius: 3px;
+        }
+        
+        .cert-provider {
+            font-weight: 700;
+            color: #28a745;
+            font-size: 10pt;
+        }
+        
+        .cert-details {
+            font-size: 9pt;
+            color: #555555;
+            margin-top: 2px;
+        }
+        
+        /* Key Achievements Box */
+        .key-achievements {
+            background: #e8f4fd;
+            border: 1px solid #2c5aa0;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+        
+        .achievements-title {
+            font-weight: 700;
+            color: #2c5aa0;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10pt;
+        }
+        
+        .achievement-number {
+            background: #2c5aa0;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 9pt;
+            flex-shrink: 0;
+        }
+        
+        /* Languages and Additional Info */
+        .additional-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        .info-section h4 {
+            font-weight: 700;
+            color: #2c5aa0;
+            font-size: 10pt;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .info-list {
+            font-size: 9pt;
+            color: #555555;
+            line-height: 1.4;
+        }
+        
+        /* Print Optimization */
+        @media print {
+            body {
+                font-size: 10pt;
+                line-height: 1.3;
+                padding: 0.5in;
+            }
+            
+            .cv-header {
+                margin-bottom: 15px;
+            }
+            
+            .section {
+                margin-bottom: 18px;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            .competencies-grid,
+            .skills-container,
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .competencies-grida,
+            .skills-container,
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .additional-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+.cv-photo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.cv-photo-container img {
+    max-width: 140px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #2c5aa0;
+}
+
+</style>
+</head>
+<body>
+    <!-- Header Section - ATS Friendly -->
+    <div class="cv-header">
+<div class="cv-photo-container">
+    <img src="foto_linkedin.png" alt="Claudio Guzmán">
+</div>
+
+        <h1 class="candidate-name">Claudio Guzmán Pérez</h1>
+        <h2 class="job-title">Systems Support Specialist | IT Administrator | Automation</h2>
+        <div class="contact-info">
+            <div class="contact-item"><strong>Email:</strong><a href="mailto:cguzman70s@gmail.com"  style="text-decoration: none;" target="_blank">cguzman70s@gmail.com</a></div>
+            <div class="contact-item"><strong>Phone:</strong><a href="https://wa.me/526691606033" style="text-decoration: none;" target="_blank">669 160 6033</a></div>
+            <div class="contact-item"><strong>Location:</strong><a href="https://maps.app.goo.gl/GmLPqFw8yTacV3j28"  style="text-decoration: none;" target="_blank">Mazatlán, Sinaloa, México</a></div>
+            <div class="contact-item"><strong>LinkedIn:</strong><a href="https://www.linkedin.com/in/claudio-guzman-oeoszooz/" style="text-decoration: none;" target="_blank">linkedin.com/in/claudio-guzman-oeoszooz</a></div>
+        </div>
+    </div>
+    
+    <!-- Professional Summary - Critical for ATS -->
+    <div class="professional-summary">
+        <div class="summary-text">
+            <strong>Especialista en Soporte de Sistemas</strong> con más de 20 años de experiencia en administración de infraestructura IT, automatización de procesos y desarrollo de soluciones tecnológicas. Experto en <strong>Windows Server, Linux, VMware, Python, PowerShell</strong> y <strong>cloud computing</strong>. Historial comprobado en la implementación de sistemas seguros, reducción de tiempo de inactividad en 95% y automatización de procesos críticos. Certificado en <strong>Microsoft AI-900, DP-900</strong> y múltiples tecnologías. Especializado en <strong>ITIL, ISO 27001, Agile</strong> y gestión de equipos multidisciplinarios.
+        </div>
+    </div>
+    
+    <!-- Key Achievements -->
+    <div class="key-achievements">
+        <div class="achievements-title">KEY ACHIEVEMENTS</div>
+        <div class="achievements-grid">
+            <div class="achievement-item">
+                <div class="achievement-number">95%</div>
+                <span>Reducción tiempo de inactividad</span>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-number">50+</div>
+                <span>Procesos automatizados</span>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-number">25+</div>
+                <span>Certificaciones técnicas</span>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-number">100%</div>
+                <span>Cumplimiento de SLA</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Core Competencies -->
+    <div class="section">
+        <h3 class="section-title">CORE COMPETENCIES</h3>
+        <div class="competencies-grid">
+            <div class="competency-category">
+                <div class="competency-title">Sistemas Operativos</div>
+                <div class="competency-list">
+                    Windows Server 2016/2019/2022 • Linux (Ubuntu, CentOS, RHEL) • MacOS Administration • VMware vSphere • Hyper-V • Active Directory • LDAP • DNS/DHCP
+                </div>
+            </div>
+            <div class="competency-category">
+                <div class="competency-title">Programación & Scripting</div>
+                <div class="competency-list">
+                    Python • PowerShell • JavaScript • PHP • SQL/MySQL • C++ • Bash Scripting • VBScript • HTML/CSS • API Development
+                </div>
+            </div>
+            <div class="competency-category">
+                <div class="competency-title">Cloud & DevOps</div>
+                <div class="competency-list">
+                    Google Cloud Platform • MongoDB • Docker • ETL Processes • CI/CD • Infrastructure as Code • Kubernetes • Terraform
+                </div>
+            </div>
+        </div>
+        <div class="competencies-grida">
+            <div class="competency-category">
+                <div class="competency-title">Networking</div>
+                <div class="competency-list">
+                    Redes LAN/WAN • Configuración de switches y routers • VPNs y VLANs • VMware vSphere  • Cableado estructurado • Implementación de sistemas Panduit® y Conduit
+                </div>
+            </div>
+            <div class="competency-category">
+                <div class="competency-title">Seguridad & Redes</div>
+                <div class="competency-list">
+                    CyberArk • Firewall Configuration • VPN Setup • Network Security • Penetration Testing • SSL/TLS • ISO 27001 • NIST Framework
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Professional Experience -->
+    <div class="section">
+        <h3 class="section-title"><br>PROFESSIONAL EXPERIENCE</h3>
+        
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-position">Systems Support Specialist</div>
+                <div class="employment-dates">Mayo 2021 - Marzo 2025</div>
+            </div>
+            <div class="company-name">Coppel | Retail Corporativo</div>
+            <div class="job-location">Mazatlán, Sinaloa, México</div>
+            <div class="job-description">
+                Responsable de la administración integral de recursos físicos y virtuales corporativos, manteniendo infraestructura crítica sin vulnerabilidades y garantizando continuidad operacional 24/7.
+            </div>
+            <ul class="achievements-list">
+                <li><strong>Automation:</strong> Desarrollé 50+ scripts en Python, PowerShell, Bash y JavaScript, reduciendo tareas manuales en 80% y errores humanos en 95%</li>
+                <li><strong>Monitoreo:</strong> Implementé dashboards avanzados para monitoreo en tiempo real de sistemas críticos</li>
+                <li><strong>Servidores:</strong> Administré 4000+ servidores físicos y virtuales en Windows Server y Linux simultáneamente</li>
+                <li><strong>Seguridad:</strong> Ejecuté actualizaciones de seguridad y parches, manteniendo 98% de cumplimiento con políticas corporativas</li>
+                <li><strong>HelpDesk:</strong> Atendí 500+ tickets mensuales vía email, llamadas, videoconferencia y presencial con resolución promedio de 2 horas</li>
+                <li><strong>Soporte en campo:</strong> Implementé y administré redes LAN y WAN. Configurando y gestionando switches, routers, VLANs y VPNs, asegurando conectividad 99% disponible. Implementar soluciones a necesidades específicas para la red, tales como DHCP, DNS, configuración de Access Points e implementación de VLAN en switches, en su mayoría Cisco, TP-Link y unos pocos Ruckus. Configuración de firewalls Fortinet. Preparaba DHCP y DNS dandolos como entregables a otra área del negocio.
+                </li>
+                <li><strong>Capacitación:</strong> Entrené a 100+ usuarios en nuevas tecnologías y procesos, reduciendo tickets recurrentes en 45%</li>
+                <li><strong>Documentación:</strong> Establecí y documenté procesos críticos siguiendo estándares ITIL v4</li>
+            </ul>
+        </div>
+        
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-position">Systems Support Specialist</div>
+                <div class="employment-dates">Enero 2012 - Octubre 2016</div>
+            </div>
+            <div class="company-name">Estrella del Mar Golf, Condos, Spa & Beach Resort | Turismo</div>
+            <div class="job-location">Mazatlán, Sinaloa, México</div>
+            <div class="job-description">
+                Administré infraestructura IT completa para resort de lujo, incluyendo sistemas de ventas, inventarios, PMS hotelero y conectividad en toda la propiedad.
+            </div>
+            <ul class="achievements-list">
+                <li><strong>Infraestructura:</strong> Diseñé, implementé y administré redes LAN, WAN y de voz, tanto por cobre como WiFi. Configurandoo y gestionando switches, routers, VLANs y VPNs, asegurando conectividad eficiente y segura. Gestioné DHCP de la propiedad y configuré el DNS. Realizé levantamientos en sitio para evaluar necesidades específicas, diseñando soluciones personalizadas que optimizaron el rendimiento de la red. Hábil en la instalación y mantenimiento de cableado estructurado, utilizando sistemas Panduit y Conduit, y administré redes Wifi, configurando firewalls, access points, antenas, cámaras y tecnologías WiFi de marcas como Fortinet, SonicWall, Cisco, HikVision, Netgear, TP-Link, D-Link, y Ubiquiti.</li>
+                <li><strong>Desarrollo:</strong> Programé intranet personalizada usando PHP, Python, JavaScript, HTML/CSS mejorando eficiencia operacional. Diseñe, desarrollé e implementle el sistema de checador adoptado por Grupo PINSA</li>
+                <li><strong>Sistemas POS:</strong> Optimicé sistemas de ventas de mini-market y restaurantes, reduciendo tiempo de transacción en 30%</li>
+                <li><strong>Servidores:</strong> Instalé, configuré y mantuve 15+ servidores Windows/Linux con 99.9% uptime</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Education -->
+    <div class="section">
+        <h3 class="section-title">EDUCATION</h3>
+        <div class="education-item">
+            <div class="degree-info">
+                <div class="degree-title">Licenciatura en Informática</div>
+                <div class="institution">Universidad Autónoma de Sinaloa</div>
+                <div class="education-details"><small>Campo: Ciencias Computacionales<br>1998 - 2002</small></div>
+            </div>
+            <div class="education-dates"></div>
+            
+            <div class="degree-info">
+                <div class="degree-title">Técnico en Electrónica</div>
+                <div class="institution">CetMar 08</div>
+                <div class="education-details"><small>Especialidad: Electrónica Marina<br>1995 - 1998</small></div>
+            </div>
+            <div class="education-dates"></div>
+        
+            <div class="degree-info">
+                <div class="degree-title">Técnico en Dibujo</div>
+                <div class="institution">Escuela Secundaria Técnica 05 (Eti5)</div>
+                <div class="education-details"><small>Especialidad: Dibujo técnico industrial<br>1991 - 1994</small></div>
+            </div>
+            <div class="education-dates"></div>
+        </div>
+    </div>
+    
+    <!-- Technical Skills -->
+    <div class="section">
+        <h3 class="section-title"><br>TECHNICAL SKILLS</h3>
+        <div class="skills-container">
+            <div class="skill-category">
+                <div class="skill-category-title">Sistemas & Servidores</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Windows Server</span>
+                    <span class="skill-tag">Linux Administration</span>
+                    <span class="skill-tag">MacOS</span>
+                    <span class="skill-tag">VMware vSphere</span>
+                    <span class="skill-tag">Hyper-V</span>
+                    <span class="skill-tag">Active Directory</span>
+                    <span class="skill-tag">LDAP</span>
+                    <span class="skill-tag">DNS/DHCP</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">Programación & Desarrollo</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Selenium</span>
+                    <span class="skill-tag">PowerShell</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">SQL/MySQL</span>
+                    <span class="skill-tag">C++/#</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">API Development</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">Cloud & Datos</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Google Cloud Platform</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Azure</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">MSSQL | MySQL | PosgreSQL | Oracle</span>
+                    <span class="skill-tag">ETL Processes</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">DevOps</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">Seguridad & Redes</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">CyberArk</span>
+                    <span class="skill-tag">Network Security</span>
+                    <span class="skill-tag">Cableado estructurado</span>
+                    <span class="skill-tag">Firewall Management</span>
+                    <span class="skill-tag">VPN Configuration</span>
+                    <span class="skill-tag">QA Testing</span>
+                    <span class="skill-tag">Penetration Testing</span>
+                    <span class="skill-tag">SSL/TLS</span>
+                    <span class="skill-tag">Wireshark</span>
+                    <span class="skill-tag">Nmap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Certifications -->
+    <div class="section">
+        <h3 class="section-title">PROFESSIONAL CERTIFICATIONS</h3>
+        <div class="certifications-grid">
+            <div class="certification-item">
+                <div class="cert-provider">Microsoft</div>
+                <div class="cert-details">AI-900: Microsoft Azure AI Fundamentals</div>
+                <div class="cert-details">DP-900: Microsoft Azure Data Fundamentals</div>
+                <div class="cert-details">Windows 11 Administration</div>
+            </div>
+            <div class="certification-item">
+                <div class="cert-provider">Google</div>
+                <div class="cert-details">Google Cloud Computing Fundamentals</div>
+                <div class="cert-details">Ciberseguridad en el Teletrabajo</div>
+                <div class="cert-details">Marketing Digital</div>
+            </div>
+            <div class="certification-item">
+                <div class="cert-provider">HP</div>
+                <div class="cert-details">Commercial Desktops & Workstations Service</div>
+                <div class="cert-details">Point of Sale Service and Support</div>
+            </div>
+            <div class="certification-item">
+                <div class="cert-provider">Dell EMC</div>
+                <div class="cert-details">Customer Service and Support Specialist</div>
+                <div class="cert-details">Dell EMC DSP Navigation of Tools and Portals</div>
+                <div class="cert-details">DSP Security and Privacy</div>
+            </div>
+            <div class="certification-item">
+                <div class="cert-provider">ICANN</div>
+                <div class="cert-details">200.1 Visual Guide to the History of the Internet</div>
+                <div class="cert-details">400.1 Cybersecurity Basics</div>
+                <div class="cert-details">602.1 DNS Fundamentals</div>
+                <div class="cert-details">604 Root Server System (RSS) Essentials</div>
+                <div class="cert-details">604.1 Root Server System (RSS) Essentials</div>
+                <div class="cert-details">605.1 Introduction to Universal Acceptance (UA)</div>
+            </div>
+            <div class="certification-item">
+                <div class="cert-provider">UNAM</div>
+                <div class="cert-details">Programación en Lenguaje R</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Additional Information -->
+    <div class="section">
+        <h3 class="section-title">ADDITIONAL INFORMATION</h3>
+        <div class="additional-info">
+            <div class="info-section">
+                <h4>Languages</h4>
+                <div class="info-list">
+                    Spanish (Native)<br>
+                    English (B2 – Upper Intermediate)<br>
+                </div>
+            </div>
+            <div class="info-section">
+                <h4>Availability</h4>
+                <div class="info-list">
+                    Immediate<br>
+                    On-site / Remote / Hybrid work<br>
+                    Flexible schedule
+                </div>
+            </div>
+            <div class="info-section">
+                <h4>Professional Interests</h4>
+                <div class="info-list">
+                    Inteligencia Artificial<br>
+                    Machine Learning<br>
+                    Cloud Computing<br>
+                    Cybersecurity<br>
+                    DevOps/SRE
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
